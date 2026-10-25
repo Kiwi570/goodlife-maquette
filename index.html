@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Good Life Sport's Club · Salle de sport au Gosier, Guadeloupe</title>
+<meta name="description" content="Salle de sport au Gosier : fitness, musculation, cardio-training, pilates, yoga, coaching et cross training. Cours à la séance dès 10 €. 104 route de Montauban, près de la clinique de Choisy.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#12352B">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" as="image" href="assets/img/accueil-hero-16x9-1920.webp" media="(min-aspect-ratio: 3/4)">
+<link rel="stylesheet" href="assets/css/lenis.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/js/vendor/gsap.min.js"></script>
+<script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/vendor/SplitText.min.js"></script>
+<script defer src="assets/js/vendor/Flip.min.js"></script>
+<script defer src="assets/js/vendor/lenis.min.js"></script>
+<script defer src="assets/js/data.js"></script>
+<script defer src="assets/js/core.js"></script>
+<script defer src="assets/js/home.js"></script>
+<script type="module" src="assets/js/leaves-gl.js"></script>
+</head>
+<body class="page-home">
+<a class="skip" href="#main">Aller au contenu</a>
+
+<div class="intro" aria-hidden="true">
+  <div class="intro__sun"></div>
+  <div class="intro__word"><span>G</span><span>O</span><span>O</span><span>D</span><span>&nbsp;</span><span>L</span><span>I</span><span>F</span><span>E</span></div>
+  <canvas></canvas>
+  <div class="intro__count">0 %</div>
+</div>
+<div class="sweep" aria-hidden="true"><canvas></canvas></div>
+
+<header class="nav">
+  <a class="logo" href="index.html" aria-label="Good Life Sport's Club, accueil">
+    <img class="logo__img" src="assets/img/logo-good-life-160.webp" width="116" height="160" alt="">
+    <span class="logo__word">Good Life<small>Sport's Club · Gosier</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Navigation principale">
+    <a href="index.html">Accueil</a>
+    <a href="planning.html">Planning</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="tarifs.html#espace-performance">Espace Performance</a>
+    <a href="index.html#acces">Accès</a>
+  </nav>
+  <div class="nav__tools">
+    <span class="status" data-status><i></i><span>Horaires</span></span>
+    <a class="btn btn--coral magnet" href="planning.html#reserver">Réserver</a>
+    <button class="burger" data-burger aria-expanded="false" aria-controls="menu"><span aria-hidden="true"></span><b class="lbl">Menu</b></button>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <canvas aria-hidden="true"></canvas>
+  <nav aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <a href="planning.html">Planning</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="tarifs.html#espace-performance">Espace Perf.</a>
+    <a href="index.html#acces">Accès</a>
+  </nav>
+  <div class="menu__foot">
+    <span class="status" data-status><i></i><span>Horaires</span></span>
+    <a href="tel:+590590031550">05 90 03 15 50</a>
+    <a href="tel:+590690674047">06 90 67 40 47</a>
+  </div>
+</div>
+
+<div class="dock" role="group" aria-label="Préférences">
+  <button type="button" data-sound aria-pressed="false"><span class="bars" aria-hidden="true"><b></b><b></b><b></b></span>Son</button>
+  <button type="button" data-calm aria-pressed="false">Mode calme</button>
+</div>
+<div class="maquette-tag">Maquette · proposition de refonte</div>
+
+<main id="main">
+
+<!-- 1. Ouverture -->
+<section class="hero" data-hero data-dark aria-label="Good Life Sport's Club">
+  <div class="hero__stage">
+    <picture class="hero__img">
+      <source media="(max-aspect-ratio: 3/4)" srcset="assets/img/accueil-hero-9x16-540.webp 540w, assets/img/accueil-hero-9x16-1080.webp 1080w" sizes="100vw">
+      <img data-hero-img src="assets/img/accueil-hero-16x9-1920.webp" srcset="assets/img/accueil-hero-16x9-960.webp 960w, assets/img/accueil-hero-16x9-1920.webp 1920w" sizes="100vw" alt="Un adhérent au développé couché dans la salle de musculation aux murs jaunes du club" fetchpriority="high">
+    </picture>
+    <canvas class="hero__gl" data-hero-gl aria-hidden="true"></canvas>
+    <div class="hero__fallback" data-leaves-fallback aria-hidden="true"></div>
+    <div class="hero__shade"></div>
+  </div>
+  <div class="hero__top">
+    <span>Salle de sport · Le Gosier</span>
+    <span class="hero__time" data-gosier-time></span>
+  </div>
+  <div class="hero__bar" data-bar aria-hidden="true"></div>
+  <div class="disc" data-disc aria-hidden="true"><div class="disc__in"></div><div class="disc__txt"><b>10 €</b><small>le cours</small></div></div>
+  <div class="hero__content">
+    <h1 class="hero__title" data-hero-title><span class="line">Good Life</span><span class="sub">Sport's Club</span></h1>
+    <div class="hero__row">
+      <p class="hero__lead" data-hero-fade>Fitness, musculation, cardio-training, pilates, coaching et cross training, au 104 route de Montauban — juste à côté de la clinique de Choisy.</p>
+      <div class="hero__cta" data-hero-fade>
+        <a class="btn btn--coral magnet" href="planning.html#reserver" data-cursor="Réserver">Réserver un cours <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost magnet" href="planning.html">Voir le planning</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
+</section>
+
+<!-- 2. Bandeau -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" data-marquee>
+    <span>Fitness</span><span>Musculation</span><span>Cardio-training</span><span>Pilates</span><span>Yoga</span><span>Coaching</span><span>Cross training</span><span>H.I.I.T</span><span>Zumba</span>
+  </div>
+</div>
+
+<!-- 3. À la séance -->
+<section class="seance sec" id="seance">
+  <div class="wrap grid-2">
+    <div class="seance__media">
+      <figure class="frame r-4x5 reveal-img">
+        <img src="assets/img/accueil-seance-4x5-600.webp" srcset="assets/img/accueil-seance-4x5-600.webp 600w, assets/img/accueil-seance-4x5-1200.webp 1200w" sizes="(min-width: 900px) 40vw, 92vw" alt="Kettlebell posée sur un parquet, dans l'ombre des palmes" loading="lazy">
+      </figure>
+    </div>
+    <div>
+      <p class="eyebrow">À la séance</p>
+      <h2 class="h2" data-split>Un cours, une heure, <span class="u">10&nbsp;€</span>.</h2>
+      <p class="big-price" aria-label="10 euros"><span class="roll" data-roll-price>10</span><sup>€</sup></p>
+      <p class="lead">Réservez votre cours collectif en ligne : gym douce, step, H.I.I.T, kettlebells, abdos… Le pilates et le yoga sont à 15 €, et la séance libre cardio et musculation d'1 h 30 à 10 €.</p>
+      <div class="tickets" data-tickets>
+        <div class="ticket"><b>10 €</b><span>Cours collectif</span><small>1 h · gym douce, step, H.I.I.T, abdos…</small></div>
+        <div class="ticket"><b>15 €</b><span>Pilates · Yoga</span><small>1 h · séance</small></div>
+        <div class="ticket"><b>10 €</b><span>Séance libre</span><small>1 h 30 · cardio et musculation</small></div>
+      </div>
+      <a class="link" href="tarifs.html">Tous les tarifs</a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Disciplines -->
+<section class="disciplines" id="disciplines" data-dark>
+  <div class="wrap disciplines__head">
+    <div>
+      <p class="eyebrow">Les cours</p>
+      <h2 class="h2" data-split>Choisissez votre façon de bouger.</h2>
+    </div>
+    <div>
+      <p class="lead">Des cours collectifs encadrés, du cardio au renforcement, jusqu'aux séances plus douces. Durées et prix du site actuel.</p>
+      <div class="filters" data-filters role="group" aria-label="Filtrer les cours"></div>
+    </div>
+  </div>
+  <div class="htrack-wrap" data-hwrap>
+    <div class="htrack" data-htrack></div>
+  </div>
+  <div class="hprogress" aria-hidden="true"><i data-hbar></i></div>
+</section>
+
+<!-- 5. H.I.I.T -->
+<section class="hiit is-work" id="hiit" data-hiit data-dark>
+  <div class="hiit__bg">
+    <img src="assets/img/accueil-hiit-16x9-960.webp" srcset="assets/img/accueil-hiit-16x9-960.webp 960w, assets/img/accueil-hiit-16x9-1920.webp 1920w" sizes="100vw" alt="" loading="lazy">
+    <div class="hiit__tint"></div>
+  </div>
+  <div class="wrap hiit__inner">
+    <div>
+      <p class="eyebrow">H.I.I.T & Fitworkout</p>
+      <h2 class="h2" data-split>Effort. Récup. On recommence.</h2>
+      <p class="lead">Cours collectif qui allie plusieurs disciplines du fitness : LIA, cross training, CAF, pump. On y travaille le cardio et le renforcement musculaire pour développer sa condition physique générale.</p>
+      <p><a class="btn btn--coral magnet" href="planning.html?cours=hiit#reserver" data-cursor="Go !">Réserver un H.I.I.T · 10 € <span class="arr" aria-hidden="true">→</span></a></p>
+      <p class="note">Chrono de démonstration au format 20 s / 10 s : faites défiler pour le lancer. Activez le son pour les bips.</p>
+    </div>
+    <div class="chrono" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><circle class="ticks" cx="100" cy="100" r="90"/><circle class="bg" cx="100" cy="100" r="80"/><circle class="fg" data-ring cx="100" cy="100" r="80" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0"/></svg>
+      <div class="chrono__in">
+        <div class="chrono__num" data-chrono-num>20</div>
+        <div class="chrono__phase" data-chrono-phase>Effort</div>
+        <div class="chrono__round" data-chrono-round>Round 1 / 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Zen -->
+<section class="zen sec" id="zen" data-zen>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="wave"><feTurbulence type="fractalNoise" baseFrequency=".012 .03" numOctaves="2" seed="4" data-wave-turb/><feDisplacementMap in="SourceGraphic" scale="0" data-wave-map/></filter></svg>
+  <div class="wrap grid-2">
+    <div>
+      <p class="eyebrow">Forfait zen</p>
+      <h2 class="h2" data-split>Retrouvez l'harmonie.</h2>
+      <p class="lead">Yoga, pilates, gym douce et R.E.S — renforcement, équilibre, souplesse. Pour souffler autrement, à 10 ou 15 € la séance.</p>
+      <div class="breath" data-breath>
+        <div class="breath__circle" data-breath-circle></div>
+        <div><div class="breath__label" data-breath-label aria-live="off">Inspirez</div><small class="muted">Suivez le cercle : 4 secondes pour inspirer, 4 pour expirer.</small></div>
+      </div>
+      <div class="zen__stack">
+        <span class="chip">Yoga · 15 €</span><span class="chip">Pilates · 15 €</span><span class="chip">Gym douce · 10 €</span><span class="chip">R.E.S · 10 €</span>
+      </div>
+      <p style="margin-top:18px"><span class="todo">Contenu et prix du forfait zen à compléter</span></p>
+    </div>
+    <div class="zen__media">
+      <figure class="frame r-4x5" data-wave-img data-cursor="Respirez">
+        <img src="assets/img/cours-yoga-4x5-600.webp" srcset="assets/img/cours-yoga-4x5-600.webp 600w, assets/img/cours-yoga-4x5-1200.webp 1200w" sizes="(min-width: 900px) 40vw, 92vw" alt="Silhouette en posture du guerrier, en contre-jour" loading="lazy">
+        <figcaption>Guerrier un</figcaption>
+      </figure>
+      <figure class="frame r-4x5 zen__float" aria-hidden="true">
+        <img src="assets/img/accueil-zen-4x5-600.webp" alt="" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Coaching -->
+<section class="coaching sec" id="coaching">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:end">
+      <div>
+        <p class="eyebrow">Good Life Coaching</p>
+        <h2 class="h2" data-split>Vos objectifs, avec des pros.</h2>
+      </div>
+      <p class="lead">Votre formule coaching, à votre rythme : une, deux ou trois séances par semaine, pour un suivi de proximité.</p>
+    </div>
+    <div class="plans" data-plans></div>
+    <div class="coaching__media">
+      <figure class="frame r-4x5 reveal-img" style="max-width:520px">
+        <img src="assets/img/accueil-coaching-4x5-600.webp" srcset="assets/img/accueil-coaching-4x5-600.webp 600w, assets/img/accueil-coaching-4x5-1200.webp 1200w" sizes="(min-width: 900px) 36vw, 92vw" alt="Mains d'un coach qui parent une barre" loading="lazy">
+      </figure>
+      <div>
+        <p class="lead">Les coachs du club : noms, spécialités et diplômes à présenter ici.</p>
+        <p><span class="todo">Équipe, diplômes et cartes professionnelles à compléter</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Espace Performance -->
+<section class="perf sec" id="espace-performance-teaser" data-dark>
+  <div class="wrap perf__grid">
+    <div>
+      <img src="assets/img/logo-performance-500.webp" width="120" height="120" alt="Logo Performance by Good Life Sport's Club" style="border-radius:18px;margin-bottom:24px" loading="lazy">
+      <p class="eyebrow">Espace Performance</p>
+      <h2 class="h2" data-split>Une salle privée, à l'heure.</h2>
+      <p class="lead">Salle équipée pour vos séances de cross training, H.I.I.T, boxe ou Tabata. Elle s'adresse aux coachs professionnels pour leurs séances comme aux particuliers. Fini les salles bondées.</p>
+      <div class="perf__facts">
+        <div><b>dès <span data-roll-perf>5</span> €</b><span>de l'heure</span></div>
+        <div><b>1 h</b><span>minimum, payé à la durée</span></div>
+      </div>
+      <div class="usages"><span class="chip">Cross training</span><span class="chip">H.I.I.T</span><span class="chip">Boxe</span><span class="chip">Tabata</span><span class="chip">Groupe avec coach certifié</span></div>
+      <p style="margin-top:28px"><a class="btn btn--sand magnet" href="tarifs.html#espace-performance">Louer l'Espace Performance <span class="arr" aria-hidden="true">→</span></a></p>
+    </div>
+    <div class="perf__media">
+      <img src="assets/img/accueil-performance-16x9-960.webp" srcset="assets/img/accueil-performance-16x9-960.webp 960w, assets/img/accueil-performance-16x9-1920.webp 1920w" sizes="(min-width: 900px) 55vw, 92vw" alt="Salle d'entraînement privée avec sac de frappe et box" loading="lazy">
+      <div class="perf__beam" data-beam></div>
+      <span class="chip chip--ambiance">Ambiance</span>
+    </div>
+  </div>
+</section>
+
+<!-- 9. La salle -->
+<section class="club sec" id="club">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:end">
+      <div>
+        <p class="eyebrow">Le club</p>
+        <h2 class="h2" data-split>La salle, en vrai.</h2>
+      </div>
+      <p class="lead">Musculation, cardio et cours collectifs dans une salle à taille humaine, au bord de la route de Montauban.</p>
+    </div>
+    <div class="mosaic" data-mosaic>
+      <button class="frame" data-lightbox data-cursor="Voir"><img src="assets/img/salle-cours-barres-4x5-600.webp" alt="Cours collectif avec barres et steps dans la salle" loading="lazy"></button>
+      <button class="frame" data-lightbox data-cursor="Voir" data-full="assets/img/salle-musculation-16x9-1920.webp"><img src="assets/img/salle-musculation-16x9-960.webp" alt="Espace musculation : banc, barre et disques devant les murs jaunes" loading="lazy"></button>
+      <button class="frame" data-lightbox data-cursor="Voir"><img src="assets/img/salle-step-1x1-600.webp" alt="Cours de step dans la salle" loading="lazy"></button>
+      <button class="frame" data-lightbox data-cursor="Voir"><img src="assets/img/salle-abdos-4x5-600.webp" alt="Cours au sol sur tapis, abdos et gainage" loading="lazy"></button>
+      <button class="frame" data-lightbox data-cursor="Voir"><img src="assets/img/salle-enseigne-16x9-960.webp" alt="L'enseigne du club au bord de la route" loading="lazy"></button>
+      <button class="frame" data-lightbox data-cursor="Voir"><img src="assets/img/salle-06-4x5-600.webp" alt="Emplacement pour une photo du club à venir" loading="lazy"></button>
+    </div>
+    <div class="confirm"><span class="muted">À confirmer par le club :</span><span data-confirm></span></div>
+  </div>
+</section>
+
+<!-- 10. Kids moov & Power dance -->
+<section class="fun sec" id="kids-dance">
+  <div class="wrap">
+    <p class="eyebrow">Et aussi</p>
+    <h2 class="h2" data-split>Kids moov & Power dance.</h2>
+    <div class="fun__grid">
+      <article class="fun__card" data-bounce>
+        <figure class="frame"><img src="assets/img/accueil-kids-4x5-600.webp" srcset="assets/img/accueil-kids-4x5-600.webp 600w, assets/img/accueil-kids-4x5-1200.webp 1200w" sizes="(min-width: 1100px) 25vw, (min-width: 760px) 50vw, 92vw" alt="Petites baskets, plots et cerceau sur le sol d'une salle" loading="lazy"></figure>
+        <div class="txt"><h3 class="h3">Kids moov</h3><p class="muted">Rubrique présente sur le site actuel.</p><span class="todo">Public, âges, horaires et prix à compléter</span></div>
+      </article>
+      <article class="fun__card" data-bounce>
+        <figure class="frame"><img src="assets/img/accueil-dance-4x5-600.webp" srcset="assets/img/accueil-dance-4x5-600.webp 600w, assets/img/accueil-dance-4x5-1200.webp 1200w" sizes="(min-width: 1100px) 25vw, (min-width: 760px) 50vw, 92vw" alt="Silhouette de danseur en mouvement, traînées de lumière" loading="lazy"></figure>
+        <div class="txt"><h3 class="h3">Power dance</h3><p class="muted">Rubrique présente sur le site actuel.</p><span class="todo">Descriptif, horaires et prix à compléter</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 11. Accès et horaires -->
+<section class="acces sec" id="acces" data-dark>
+  <div class="wrap">
+    <p class="eyebrow">Accès & horaires</p>
+    <h2 class="h2" data-split>104 route de Montauban.</h2>
+    <div class="acces__grid">
+      <div>
+        <div class="map" data-map>
+          <span class="map__tag">Plan schématique, non à l'échelle</span>
+          <svg viewBox="0 0 800 600" role="img" aria-label="Plan schématique : le club au 104 route de Montauban, juste à côté de la clinique de Choisy">
+            <defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#F3EBDD" opacity=".12"/></pattern></defs>
+            <rect width="800" height="600" fill="url(#dots)"/>
+            <g fill="#1E4D3E" opacity=".9"><circle cx="120" cy="120" r="70"/><circle cx="190" cy="80" r="50"/><circle cx="660" cy="470" r="90"/><circle cx="720" cy="380" r="55"/><circle cx="90" cy="500" r="60"/></g>
+            <path d="M-20,520 C150,500 220,420 330,360 S560,250 640,170 S760,70 830,60" fill="none" stroke="#0B231C" stroke-width="46" stroke-linecap="round"/>
+            <path data-route d="M-20,520 C150,500 220,420 330,360 S560,250 640,170 S760,70 830,60" fill="none" stroke="#F4C27A" stroke-width="6" stroke-linecap="round" stroke-dasharray="1" pathLength="1"/>
+            <text font-family="Inter Tight, sans-serif" font-size="17" font-weight="600" fill="#F3EBDD" opacity=".7" letter-spacing="2"><textPath href="#roadLabel" startOffset="8%">ROUTE DE MONTAUBAN</textPath></text>
+            <path id="roadLabel" d="M-20,488 C150,468 220,388 330,328 S560,218 640,138" fill="none"/>
+            <g data-clinic transform="translate(470,330)"><rect x="-46" y="-30" width="92" height="60" rx="10" fill="#F3EBDD" opacity=".92"/><path d="M-6,-14 h12 v8 h8 v12 h-8 v8 h-12 v-8 h-8 v-12 h8z" fill="#3F8A64"/><text x="0" y="56" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="16" font-weight="600" fill="#F3EBDD">Clinique de Choisy</text></g>
+            <g data-pin transform="translate(560,246)"><path d="M0,0 C-26,-30 -34,-46 -34,-62 A34,34 0 1 1 34,-62 C34,-46 26,-30 0,0Z" fill="#FF6B3D"/><circle cy="-62" r="20" fill="#1A1410"/><text y="-56" text-anchor="middle" font-family="Bricolage, sans-serif" font-size="17" font-weight="800" fill="#F4C27A">104</text><text x="44" y="-58" font-family="Bricolage, sans-serif" font-size="24" font-weight="800" fill="#F3EBDD">Good Life</text><text x="44" y="-34" font-family="Inter Tight, sans-serif" font-size="14" fill="#F3EBDD" opacity=".8">juste à côté</text></g>
+          </svg>
+          <div class="map__btns">
+            <a class="btn btn--coral" href="https://www.google.com/maps/search/?api=1&query=104+route+de+Montauban+97190+Le+Gosier+Guadeloupe" target="_blank" rel="noopener">Itinéraire</a>
+            <a class="btn btn--sand" href="https://maps.apple.com/?q=104+route+de+Montauban,+97190+Le+Gosier" target="_blank" rel="noopener">Plans</a>
+          </div>
+        </div>
+        <figure class="frame r-4x5 reveal-img" style="margin-top:16px;max-width:420px">
+          <img src="assets/img/acces-enseigne-4x5-600.webp" srcset="assets/img/acces-enseigne-4x5-600.webp 600w, assets/img/acces-enseigne-4x5-1200.webp 1200w" sizes="(min-width: 980px) 30vw, 92vw" alt="Le panneau Good Life Sport's Club au bord de la route de Montauban" loading="lazy">
+          <figcaption>Repérez l'enseigne</figcaption>
+        </figure>
+      </div>
+      <div>
+        <p><span class="status" data-status style="background:rgba(243,235,221,.12)"><i></i><span>Horaires</span></span></p>
+        <table class="hours" data-hours><caption class="sr">Horaires d'ouverture</caption><tbody></tbody></table>
+        <p class="note">Horaires du site officiel. Les annuaires en indiquent d'autres : <span class="todo" style="color:#1A1410">à confirmer</span></p>
+        <div class="contact-list">
+          <a href="tel:+590590031550"><span>Fixe</span>05 90 03 15 50</a>
+          <a href="tel:+590690674047"><span>Mobile</span>06 90 67 40 47</a>
+          <a href="mailto:goodlife.sc@hotmail.fr"><span>E-mail</span>goodlife.sc@hotmail.fr</a>
+          <a href="https://www.instagram.com/goodlifesportsclub/" target="_blank" rel="noopener"><span>Instagram</span>@goodlifesportsclub</a>
+          <a href="https://www.facebook.com/GoodLifeSportsClub/" target="_blank" rel="noopener"><span>Facebook</span>Good life sport's club</a>
+        </div>
+        <div class="bt">
+          <strong>Et à Basse-Terre ?</strong>
+          <p class="note" style="opacity:.85">Le site actuel mentionne une salle à Basse-Terre, sans adresse ni horaires.</p>
+          <span class="todo" style="color:#1A1410">Adresse, horaires et statut à confirmer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__cta">
+    <div>
+      <p class="eyebrow" style="color:var(--gold)">Prêt ?</p>
+      <h2 class="h2" style="color:var(--sand)">Votre prochain cours,<br>dès 10 €.</h2>
+    </div>
+    <div class="hero__cta">
+      <a class="btn btn--coral magnet" href="planning.html#reserver" data-cursor="Réserver">Réserver <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost magnet" href="tel:+590690674047" style="color:var(--sand)">06 90 67 40 47</a>
+    </div>
+  </div>
+  <p class="foot__word" aria-hidden="true">GOOD LIFE</p>
+  <div class="wrap foot__bar">
+    <span>© <span data-year>2026</span> Good Life Sport's Club · 104 route de Montauban, 97190 Le Gosier</span>
+    <span class="foot__links"><a href="planning.html">Planning</a><a href="tarifs.html">Tarifs</a><button class="link" type="button" data-open-modal="mentions">Mentions légales</button><span data-gosier-time></span></span>
+  </div>
+</footer>
+
+<div class="modal" id="mentions" role="dialog" aria-modal="true" aria-labelledby="mentions-t" inert>
+  <div class="modal__bg" data-close></div>
+  <div class="modal__box">
+    <button class="x" type="button" data-close aria-label="Fermer">×</button>
+    <h2 class="h3" id="mentions-t">Mentions légales</h2>
+    <p><span class="todo">À compléter par le club</span></p>
+    <p><strong>Éditeur</strong> : Good Life Sport's Club — forme juridique, SIRET, adresse du siège et directeur de la publication à compléter.</p>
+    <p><strong>Hébergement</strong> : à préciser selon l'hébergement retenu.</p>
+    <p><strong>Données personnelles</strong> : cette maquette n'envoie et ne conserve aucune donnée ; les formulaires sont des simulations.</p>
+    <p><strong>Crédits</strong> : photos du club ; visuels provisoires dessinés en code ; polices Bricolage Grotesque et Inter Tight (licence SIL Open Font License).</p>
+  </div>
+</div>
+
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Photo du club">
+  <button class="x" type="button" aria-label="Fermer">×</button>
+  <img src="" alt="">
+  <div class="lightbox__nav"><button class="btn btn--sand" type="button" data-prev>← Précédente</button><button class="btn btn--sand" type="button" data-next>Suivante →</button></div>
+</div>
+
+<noscript><style>[data-split],[data-reveal]{visibility:visible!important;opacity:1!important;transform:none!important}</style></noscript>
+</body>
+</html>

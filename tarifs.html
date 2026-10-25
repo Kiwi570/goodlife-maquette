@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tarifs & Espace Performance · Good Life Sport's Club</title>
+<meta name="description" content="Tarifs de Good Life Sport's Club au Gosier : cours à 10 €, pilates et yoga à 15 €, séance libre 1 h 30 à 10 €. Espace Performance, salle privée dès 5 € de l'heure.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#12352B">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/css/lenis.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/js/vendor/gsap.min.js"></script>
+<script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/vendor/SplitText.min.js"></script>
+<script defer src="assets/js/vendor/Flip.min.js"></script>
+<script defer src="assets/js/vendor/lenis.min.js"></script>
+<script defer src="assets/js/data.js"></script>
+<script defer src="assets/js/core.js"></script>
+<script defer src="assets/js/tarifs.js"></script>
+</head>
+<body class="page-tarifs">
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="intro" aria-hidden="true">
+  <div class="intro__sun"></div>
+  <div class="intro__word"><span>G</span><span>O</span><span>O</span><span>D</span><span>&nbsp;</span><span>L</span><span>I</span><span>F</span><span>E</span></div>
+  <canvas></canvas>
+  <div class="intro__count">0 %</div>
+</div>
+<div class="sweep" aria-hidden="true"><canvas></canvas></div>
+
+<header class="nav">
+  <a class="logo" href="index.html" aria-label="Good Life Sport's Club, accueil">
+    <img class="logo__img" src="assets/img/logo-good-life-160.webp" width="116" height="160" alt="">
+    <span class="logo__word">Good Life<small>Sport's Club · Gosier</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Navigation principale">
+    <a href="index.html">Accueil</a>
+    <a href="planning.html">Planning</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="tarifs.html#espace-performance">Espace Performance</a>
+    <a href="index.html#acces">Accès</a>
+  </nav>
+  <div class="nav__tools">
+    <span class="status" data-status><i></i><span>Horaires</span></span>
+    <a class="btn btn--coral magnet" href="planning.html#reserver">Réserver</a>
+    <button class="burger" data-burger aria-expanded="false" aria-controls="menu"><span aria-hidden="true"></span><b class="lbl">Menu</b></button>
+  </div>
+</header>
+<div class="menu" id="menu">
+  <canvas aria-hidden="true"></canvas>
+  <nav aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <a href="planning.html">Planning</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="tarifs.html#espace-performance">Espace Perf.</a>
+    <a href="index.html#acces">Accès</a>
+  </nav>
+  <div class="menu__foot">
+    <span class="status" data-status><i></i><span>Horaires</span></span>
+    <a href="tel:+590590031550">05 90 03 15 50</a>
+    <a href="tel:+590690674047">06 90 67 40 47</a>
+  </div>
+</div>
+<div class="dock" role="group" aria-label="Préférences">
+  <button type="button" data-sound aria-pressed="false"><span class="bars" aria-hidden="true"><b></b><b></b><b></b></span>Son</button>
+  <button type="button" data-calm aria-pressed="false">Mode calme</button>
+</div>
+<div class="maquette-tag">Maquette · proposition de refonte</div>
+
+<main id="main">
+<section class="phero" data-dark>
+  <div class="phero__img">
+    <picture>
+      <source media="(max-aspect-ratio: 3/4)" srcset="assets/img/tarifs-hero-9x16-540.webp 540w, assets/img/tarifs-hero-9x16-1080.webp 1080w" sizes="100vw">
+      <img src="assets/img/tarifs-hero-16x9-1920.webp" srcset="assets/img/tarifs-hero-16x9-960.webp 960w, assets/img/tarifs-hero-16x9-1920.webp 1920w" sizes="100vw" alt="Gants, gourde et serviette sur un banc, dans l'ombre des feuilles" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="phero__leaves" data-phero-leaves aria-hidden="true"></div>
+  <div class="wrap phero__in">
+    <p class="eyebrow">Tarifs & Espace Performance</p>
+    <h1 data-split>Simple comme 10 €.</h1>
+    <div class="phero__row">
+      <p class="lead">Les prix affichés sont ceux du site actuel du club. Ce qui manque est signalé « à compléter ».</p>
+      <a class="btn btn--coral magnet" href="planning.html#reserver">Réserver un cours <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="seance">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:end">
+      <div><p class="eyebrow">À la séance</p><h2 class="h2" data-split>Payez le cours, pas plus.</h2></div>
+      <p class="lead">Retournez une carte pour voir les cours concernés.</p>
+    </div>
+    <div class="prices" data-prices></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0" id="formules">
+  <div class="wrap grid-2" style="align-items:start">
+    <div>
+      <p class="eyebrow">Abonnement</p>
+      <h2 class="h3" style="margin-bottom:20px">Venir souvent</h2>
+      <div class="opt-grid" data-abos></div>
+      <p class="muted" style="font-size:.9rem;margin-top:14px">Formules d'abonnement et prix à reprendre avec le club.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Good Life Coaching</p>
+      <h2 class="h3" style="margin-bottom:20px">Suivi avec un coach</h2>
+      <div class="opt-grid" data-coach></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0" id="calcul">
+  <div class="wrap">
+    <div class="calc" data-calc>
+      <div>
+        <p class="eyebrow">Calculateur</p>
+        <h2 class="h3" style="margin-bottom:12px">Votre mois à la séance</h2>
+        <p class="muted" style="margin-top:0">Combien de séances par semaine ?</p>
+        <div class="calc__row"><span><strong>Cours collectifs</strong><br><small class="muted">10 € · gym douce, step, H.I.I.T, abdos…</small></span><span class="stepper"><button type="button" data-dec="col" aria-label="Moins de cours collectifs">−</button><output data-out="col">2</output><button type="button" data-inc="col" aria-label="Plus de cours collectifs">+</button></span></div>
+        <div class="calc__row"><span><strong>Pilates ou yoga</strong><br><small class="muted">15 €</small></span><span class="stepper"><button type="button" data-dec="zen" aria-label="Moins de pilates ou yoga">−</button><output data-out="zen">1</output><button type="button" data-inc="zen" aria-label="Plus de pilates ou yoga">+</button></span></div>
+        <div class="calc__row"><span><strong>Séances libres</strong><br><small class="muted">10 € · 1 h 30 cardio et musculation</small></span><span class="stepper"><button type="button" data-dec="lib" aria-label="Moins de séances libres">−</button><output data-out="lib">0</output><button type="button" data-inc="lib" aria-label="Plus de séances libres">+</button></span></div>
+      </div>
+      <div class="calc__total" aria-live="polite">
+        <span style="font-weight:650">Sur 4 semaines</span>
+        <b><span data-total>140</span> €</b>
+        <span data-count style="display:block;margin-top:8px;opacity:.85">12 séances</span>
+        <p style="font-size:.84rem;opacity:.8;margin:18px 0 0">Estimation d'après les prix à la séance du site. Comparaison avec l'abonnement : <span class="todo" style="color:var(--ink)">tarif à compléter</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="perf sec" id="espace-performance" data-dark>
+  <div class="wrap perf__grid">
+    <div>
+      <img src="assets/img/logo-performance-500.webp" width="120" height="120" alt="Logo Performance by Good Life Sport's Club" style="border-radius:18px;margin-bottom:24px" loading="lazy">
+      <p class="eyebrow">Espace Performance</p>
+      <h2 class="h2" data-split>Louez la salle à l'heure.</h2>
+      <p class="lead">Notre salle de sport privée, équipée pour vos séances de cross training, H.I.I.T, boxe ou Tabata. Pour les professionnels et leurs séances de coaching comme pour les particuliers. Vous pouvez aussi intégrer un groupe d'entraînement avec un coach certifié.</p>
+      <p class="lead">Réservez votre séance, payez selon sa durée — une heure minimum — sur de larges créneaux horaires.</p>
+      <div class="perf__media" style="margin-top:28px">
+        <img src="assets/img/tarifs-performance-16x9-960.webp" srcset="assets/img/tarifs-performance-16x9-960.webp 960w, assets/img/tarifs-performance-16x9-1920.webp 1920w" sizes="(min-width: 900px) 45vw, 92vw" alt="Sac de frappe et mains bandées" loading="lazy">
+        <div class="perf__beam" data-beam></div>
+        <span class="chip chip--ambiance">Ambiance</span>
+      </div>
+    </div>
+    <form class="calc" style="background:#0E2C23;color:var(--sand);margin-top:0" data-perf-form novalidate>
+      <div style="grid-column:1/-1">
+        <h3 class="h3" style="margin-bottom:6px">Estimer et demander</h3>
+        <p style="opacity:.8;margin:0 0 18px">Simulation : aucune demande n'est envoyée.</p>
+        <label for="pf-h" style="font-weight:650">Durée : <output data-h-out>2 h</output></label>
+        <input class="range" id="pf-h" type="range" min="1" max="6" step="1" value="2" data-h>
+        <div class="gauge" aria-hidden="true"><i data-gauge></i></div>
+        <p style="margin:6px 0 24px"><span style="font-family:var(--font-d);font-weight:800;font-size:2.6rem;letter-spacing:-.04em;color:var(--gold)">à partir de <span data-perf-total>10</span> €</span><br><small style="opacity:.8">Sur la base de « à partir de 5 € » affiché sur le site. Tarif exact à confirmer.</small></p>
+        <div class="field"><label for="pf-use">Vous êtes</label><select id="pf-use"><option>Coach professionnel</option><option>Particulier</option><option>Groupe avec coach certifié</option></select></div>
+        <div class="field"><label for="pf-nom">Nom</label><input id="pf-nom" autocomplete="name"></div>
+        <div class="field"><label for="pf-tel">Téléphone</label><input id="pf-tel" type="tel" autocomplete="tel" inputmode="tel"></div>
+        <button class="btn btn--coral" type="submit" style="width:100%">Envoyer la demande (simulation)</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="sec" id="infos">
+  <div class="wrap grid-2" style="align-items:start">
+    <div>
+      <p class="eyebrow">Infos pratiques</p>
+      <h2 class="h2" data-split>Avant de venir.</h2>
+    </div>
+    <div class="opt-grid">
+      <div class="opt" style="cursor:default"><span><strong>Moyens de paiement</strong><br><small>Cités par un annuaire, à vérifier</small></span><span class="todo">À confirmer</span></div>
+      <div class="opt" style="cursor:default"><span><strong>Frais d'inscription</strong><br><small>Montant et conditions</small></span><span class="todo">À compléter</span></div>
+      <a class="opt" href="index.html#acces" style="text-decoration:none"><span><strong>Horaires et accès</strong><br><small data-status-inline></small></span><span aria-hidden="true">→</span></a>
+      <a class="opt" href="tel:+590690674047" style="text-decoration:none"><span><strong>Une question ?</strong><br><small>06 90 67 40 47 · 05 90 03 15 50</small></span><span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__cta">
+    <div>
+      <p class="eyebrow" style="color:var(--gold)">Prêt ?</p>
+      <h2 class="h2" style="color:var(--sand)">Votre prochain cours,<br>dès 10 €.</h2>
+    </div>
+    <div class="hero__cta">
+      <a class="btn btn--coral magnet" href="planning.html#reserver" data-cursor="Réserver">Réserver <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost magnet" href="planning.html" style="color:var(--sand)">Voir le planning</a>
+    </div>
+  </div>
+  <p class="foot__word" aria-hidden="true">GOOD LIFE</p>
+  <div class="wrap foot__bar">
+    <span>© <span data-year>2026</span> Good Life Sport's Club · 104 route de Montauban, 97190 Le Gosier</span>
+    <span class="foot__links"><a href="index.html">Accueil</a><a href="planning.html">Planning</a><button class="link" type="button" data-open-modal="mentions">Mentions légales</button><span data-gosier-time></span></span>
+  </div>
+</footer>
+
+<div class="modal" id="mentions" role="dialog" aria-modal="true" aria-labelledby="mentions-t" inert>
+  <div class="modal__bg" data-close></div>
+  <div class="modal__box">
+    <button class="x" type="button" data-close aria-label="Fermer">×</button>
+    <h2 class="h3" id="mentions-t">Mentions légales</h2>
+    <p><span class="todo">À compléter par le club</span></p>
+    <p><strong>Éditeur</strong> : Good Life Sport's Club — forme juridique, SIRET, adresse du siège et directeur de la publication à compléter.</p>
+    <p><strong>Hébergement</strong> : à préciser selon l'hébergement retenu.</p>
+    <p><strong>Données personnelles</strong> : cette maquette n'envoie et ne conserve aucune donnée ; les formulaires sont des simulations.</p>
+    <p><strong>Crédits</strong> : photos du club ; visuels provisoires dessinés en code ; polices Bricolage Grotesque et Inter Tight (licence SIL Open Font License).</p>
+  </div>
+</div>
+<noscript><style>[data-split],[data-reveal]{visibility:visible!important;opacity:1!important;transform:none!important}</style></noscript>
+</body>
+</html>

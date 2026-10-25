@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Planning & réservation · Good Life Sport's Club</title>
+<meta name="description" content="Planning des cours de Good Life Sport's Club au Gosier : choisissez un cours, un jour et un créneau. Cours dès 10 €.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#12352B">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-var.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/css/lenis.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<script defer src="assets/js/vendor/gsap.min.js"></script>
+<script defer src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="assets/js/vendor/SplitText.min.js"></script>
+<script defer src="assets/js/vendor/Flip.min.js"></script>
+<script defer src="assets/js/vendor/lenis.min.js"></script>
+<script defer src="assets/js/data.js"></script>
+<script defer src="assets/js/core.js"></script>
+<script defer src="assets/js/planning.js"></script>
+</head>
+<body class="page-planning">
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="intro" aria-hidden="true">
+  <div class="intro__sun"></div>
+  <div class="intro__word"><span>G</span><span>O</span><span>O</span><span>D</span><span>&nbsp;</span><span>L</span><span>I</span><span>F</span><span>E</span></div>
+  <canvas></canvas>
+  <div class="intro__count">0 %</div>
+</div>
+<div class="sweep" aria-hidden="true"><canvas></canvas></div>
+
+<header class="nav">
+  <a class="logo" href="index.html" aria-label="Good Life Sport's Club, accueil">
+    <img class="logo__img" src="assets/img/logo-good-life-160.webp" width="116" height="160" alt="">
+    <span class="logo__word">Good Life<small>Sport's Club · Gosier</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Navigation principale">
+    <a href="index.html">Accueil</a>
+    <a href="planning.html">Planning</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="tarifs.html#espace-performance">Espace Performance</a>
+    <a href="index.html#acces">Accès</a>
+  </nav>
+  <div class="nav__tools">
+    <span class="status" data-status><i></i><span>Horaires</span></span>
+    <a class="btn btn--coral magnet" href="#reserver" data-open-booking>Réserver</a>
+    <button class="burger" data-burger aria-expanded="false" aria-controls="menu"><span aria-hidden="true"></span><b class="lbl">Menu</b></button>
+  </div>
+</header>
+<div class="menu" id="menu">
+  <canvas aria-hidden="true"></canvas>
+  <nav aria-label="Menu">
+    <a href="index.html">Accueil</a>
+    <a href="planning.html">Planning</a>
+    <a href="tarifs.html">Tarifs</a>
+    <a href="tarifs.html#espace-performance">Espace Perf.</a>
+    <a href="index.html#acces">Accès</a>
+  </nav>
+  <div class="menu__foot">
+    <span class="status" data-status><i></i><span>Horaires</span></span>
+    <a href="tel:+590590031550">05 90 03 15 50</a>
+    <a href="tel:+590690674047">06 90 67 40 47</a>
+  </div>
+</div>
+<div class="dock" role="group" aria-label="Préférences">
+  <button type="button" data-sound aria-pressed="false"><span class="bars" aria-hidden="true"><b></b><b></b><b></b></span>Son</button>
+  <button type="button" data-calm aria-pressed="false">Mode calme</button>
+</div>
+<div class="maquette-tag">Maquette · proposition de refonte</div>
+
+<main id="main">
+<section class="phero" data-dark>
+  <div class="phero__img">
+    <picture>
+      <source media="(max-aspect-ratio: 3/4)" srcset="assets/img/planning-hero-9x16-540.webp 540w, assets/img/planning-hero-9x16-1080.webp 1080w" sizes="100vw">
+      <img src="assets/img/planning-hero-16x9-1920.webp" srcset="assets/img/planning-hero-16x9-960.webp 960w, assets/img/planning-hero-16x9-1920.webp 1920w" sizes="100vw" alt="Rangée de kettlebells alignées par taille au lever du jour" fetchpriority="high" data-phero-img>
+    </picture>
+  </div>
+  <div class="phero__leaves" data-phero-leaves aria-hidden="true"></div>
+  <div class="wrap phero__in">
+    <p class="eyebrow">Planning & réservation</p>
+    <h1 data-split>La semaine au club.</h1>
+    <div class="phero__row">
+      <p class="lead">Choisissez un cours, un jour, un créneau. Une heure, 10 € ; pilates et yoga 15 €.</p>
+      <span class="status" data-status style="background:rgba(26,20,16,.35)"><i></i><span>Horaires</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="planning sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="banner">
+      <span class="demo-flag">Planning de démonstration</span>
+      <span class="next" data-next aria-live="polite"></span>
+      <span style="font-size:.86rem;opacity:.8">Créneaux illustratifs à remplacer par le vrai planning du club · durées et prix du site actuel</span>
+    </div>
+
+    <div class="week-tools">
+      <div class="days" data-days role="group" aria-label="Choisir un jour"></div>
+      <div class="filters" data-pfilters role="group" aria-label="Filtrer par type de cours"></div>
+    </div>
+    <div class="week" data-week></div>
+    <div class="legend"><span><i style="background:var(--coral)"></i>Cardio & H.I.I.T</span><span><i style="background:var(--ink)"></i>Renforcement</span><span><i style="background:var(--leaf-2)"></i>Zen & souplesse</span><span>Séance libre cardio et musculation : à l'heure de votre choix pendant les horaires d'ouverture.</span></div>
+
+    <div style="margin-top:clamp(70px,9vw,130px)" id="cours">
+      <div class="grid-2" style="align-items:end">
+        <div><p class="eyebrow">Les cours</p><h2 class="h2" data-split>Tout le programme.</h2></div>
+        <p class="lead">Les descriptions marquées « texte du club » reprennent le site actuel ; les autres décrivent la discipline et restent à valider.</p>
+      </div>
+      <div class="catalog" data-catalog></div>
+    </div>
+
+    <div class="calc" style="margin-top:clamp(70px,9vw,130px)">
+      <div>
+        <p class="eyebrow">Première fois ?</p>
+        <h2 class="h3">Réservez en ligne sur le site actuel, ou appelez le club.</h2>
+        <p class="muted">Dans cette maquette, la réservation est simulée : aucune demande n'est envoyée.</p>
+      </div>
+      <div class="hero__cta">
+        <a class="btn btn--coral magnet" href="https://www.goodlifesportsclub.net/reservations" target="_blank" rel="noopener">Réservation actuelle <span class="arr" aria-hidden="true">↗</span></a>
+        <a class="btn btn--ghost magnet" href="tel:+590690674047">06 90 67 40 47</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__cta">
+    <div>
+      <p class="eyebrow" style="color:var(--gold)">Une question ?</p>
+      <h2 class="h2" style="color:var(--sand)">05 90 03 15 50<br>06 90 67 40 47</h2>
+    </div>
+    <div class="hero__cta">
+      <a class="btn btn--coral magnet" href="tarifs.html">Voir les tarifs <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost magnet" href="index.html#acces" style="color:var(--sand)">Accès & horaires</a>
+    </div>
+  </div>
+  <p class="foot__word" aria-hidden="true">GOOD LIFE</p>
+  <div class="wrap foot__bar">
+    <span>© <span data-year>2026</span> Good Life Sport's Club · 104 route de Montauban, 97190 Le Gosier</span>
+    <span class="foot__links"><a href="index.html">Accueil</a><a href="tarifs.html">Tarifs</a><button class="link" type="button" data-open-modal="mentions">Mentions légales</button><span data-gosier-time></span></span>
+  </div>
+</footer>
+
+<!-- Tiroir de réservation simulée -->
+<div class="drawer" id="reserver" role="dialog" aria-modal="true" aria-labelledby="bk-title" inert>
+  <div class="drawer__bg" data-bk-close></div>
+  <div class="drawer__panel">
+    <div class="drawer__head">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <h2 class="h3" id="bk-title">Réserver une séance</h2>
+        <button class="x" type="button" data-bk-close aria-label="Fermer" style="position:static">×</button>
+      </div>
+      <div class="steps" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="muted" style="margin:0;font-size:.85rem" data-bk-stepname>Étape 1 sur 3 · le cours et le créneau</p>
+    </div>
+    <div class="drawer__body" data-bk-body></div>
+    <div class="drawer__foot">
+      <button class="btn btn--ghost" type="button" data-bk-back>Retour</button>
+      <button class="btn btn--coral" type="button" data-bk-next>Continuer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="mentions" role="dialog" aria-modal="true" aria-labelledby="mentions-t" inert>
+  <div class="modal__bg" data-close></div>
+  <div class="modal__box">
+    <button class="x" type="button" data-close aria-label="Fermer">×</button>
+    <h2 class="h3" id="mentions-t">Mentions légales</h2>
+    <p><span class="todo">À compléter par le club</span></p>
+    <p><strong>Éditeur</strong> : Good Life Sport's Club — forme juridique, SIRET, adresse du siège et directeur de la publication à compléter.</p>
+    <p><strong>Hébergement</strong> : à préciser selon l'hébergement retenu.</p>
+    <p><strong>Données personnelles</strong> : cette maquette n'envoie et ne conserve aucune donnée ; les formulaires sont des simulations.</p>
+    <p><strong>Crédits</strong> : photos du club ; visuels provisoires dessinés en code ; polices Bricolage Grotesque et Inter Tight (licence SIL Open Font License).</p>
+  </div>
+</div>
+<noscript><style>[data-split],[data-reveal]{visibility:visible!important;opacity:1!important;transform:none!important}</style><p class="wrap">Le planning interactif nécessite JavaScript. Réservez sur <a href="https://www.goodlifesportsclub.net/reservations">le site actuel</a> ou au 06 90 67 40 47.</p></noscript>
+</body>
+</html>
