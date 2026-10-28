@@ -126,6 +126,7 @@
       if (!GL.introDone || !$('.intro')) heroIn();
       /* Ouverture : rideau qui s'écarte, titre qui se comprime */
       const titleLine = $('.hero__title .line'), tw = { w: 100 };
+      document.documentElement.classList.add('hero-pinned'); /* l'espace réservé en CSS est repris par l'épinglage, sans saut */
       G.timeline({ scrollTrigger: { trigger: '[data-hero]', start: 'top top', end: '+=110%', pin: true, scrub: true, onUpdate: s => { GL.heroProgress = s.progress; setFallback(s.progress); } } })
         .to(tw, { w: 75, ease: 'none', onUpdate: () => (titleLine.style.fontVariationSettings = `"wdth" ${tw.w.toFixed(1)}, "opsz" 96`) }, 0)
         .to('.hero__content', { yPercent: -18, ease: 'none' }, 0)

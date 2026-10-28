@@ -186,11 +186,12 @@
   /* ---------- Démarrage ---------- */
   document.addEventListener('DOMContentLoaded', init);
   function init() {
+    requestAnimationFrame(() => html.classList.remove('boot'));
     paintStatus(); setInterval(paintStatus, 30000);
     $$('[data-calm]').forEach(b => { b.setAttribute('aria-pressed', String(calm)); b.addEventListener('click', () => setCalm(!calm)); });
     $$('[data-sound]').forEach(b => b.addEventListener('click', () => Sound.toggle()));
     $$('[data-year]').forEach(e => (e.textContent = new Date().getFullYear()));
-    menu(); modals(); lightbox();
+    menu(); modals(); lightbox(); mbar();
     if (hasGSAP) { gsap.registerPlugin(ScrollTrigger); if (window.SplitText) gsap.registerPlugin(SplitText); if (window.Flip) gsap.registerPlugin(Flip); }
     if (calm || !hasGSAP) {
       html.classList.add('no-intro'); $('.intro')?.remove(); $('.sweep')?.remove();
@@ -265,7 +266,7 @@
     const b = $('[data-burger]'), m = $('#menu'); if (!b || !m) return;
     const set = open => {
       b.setAttribute('aria-expanded', String(open)); m.classList.toggle('is-open', open); m.toggleAttribute('inert', !open);
-      document.body.classList.toggle('menu-open', open); b.querySelector('.lbl').textContent = open ? 'Fermer' : 'Menu';
+      document.body.classList.toggle('menu-open', open); b.querySelector('.lbl').textContent = open ? 'Fermer' : 'Menu'; GL.mbar && GL.mbar();
       if (GL.lenis) open ? GL.lenis.stop() : GL.lenis.start();
       if (open) { const c = $('canvas', m); if (c && !c.dataset.done) { GL.sizeCanvas(c, .7); GL.drawLeaves(c, { region: 'right', count: 6, mono: '#2F6B4F', seed: 5 }); c.dataset.done = 1; } m.querySelector('a')?.focus(); if (hasGSAP && !calm) gsap.from($$('nav a', m), { yPercent: 60, opacity: 0, stagger: .05, duration: .7, ease: 'power3.out', delay: .15 }); }
     };
@@ -273,6 +274,23 @@
     b.addEventListener('click', () => set(b.getAttribute('aria-expanded') !== 'true'));
     m.addEventListener('click', e => { if (e.target.closest('a')) set(false); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && m.classList.contains('is-open')) { set(false); b.focus(); } });
+  }
+
+  /* Barre d'action sur téléphone : visible après le héros, masquée sur le pied de page et le menu */
+  function mbar() {
+    const hero = $('[data-hero], .phero'), foot = $('.foot'), src = $('.nav__tools .btn');
+    if (!hero || !foot || !src || document.body.classList.contains('page-404') || !('IntersectionObserver' in window)) return;
+    const bar = document.createElement('div'); bar.className = 'mbar'; bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Actions rapides');
+    const book = src.cloneNode(true); book.classList.remove('magnet');
+    const call = document.createElement('a'); call.className = 'btn btn--sand'; call.href = 'tel:+590690674047'; call.textContent = 'Appeler'; call.setAttribute('aria-label', 'Appeler le 06 90 67 40 47');
+    bar.append(book, call); document.body.appendChild(bar);
+    const vis = { hero: true, foot: false };
+    const set = () => { const on = !vis.hero && !vis.foot && !document.body.classList.contains('menu-open'); html.classList.toggle('mbar-on', on); bar.inert = !on; };
+    const io = new IntersectionObserver(es => { es.forEach(e => (vis[e.target === hero ? 'hero' : 'foot'] = e.isIntersecting)); set(); }, { rootMargin: '0px 0px 40px 0px' });
+    io.observe(hero); io.observe(foot);
+    const measure = () => html.style.setProperty('--barres-h', bar.offsetHeight + 'px');
+    if (window.ResizeObserver) new ResizeObserver(measure).observe(bar); measure();
+    GL.mbar = set; set();
   }
 
   /* Ombres de palmes qui suivent l'heure du Gosier */
@@ -347,8 +365,16 @@
       gsap.from(s.chars, { yPercent: 110, rotate: 6, duration: .9, ease: 'power4.out', stagger: .018, scrollTrigger: { trigger: el, start: 'top 88%' } });
     });
   }
+  /* Apparitions : aussi appelé par les scripts de page après un rendu dynamique (GL.reveals(racine)) */
+  function revealEls(root = document) {
+    $$('[data-reveal]', root).forEach(el => {
+      if (el._revealed) return; el._revealed = true;
+      gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: +(el.dataset.reveal || 0), scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+    });
+  }
+  GL.reveals = root => { if (hasGSAP && !calm) revealEls(root); };
   function reveals() {
-    $$('[data-reveal]').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: +(el.dataset.reveal || 0), scrollTrigger: { trigger: el, start: 'top 90%' } }));
+    revealEls();
     $$('.reveal-img').forEach(f => {
       const img = f.querySelector('img');
       gsap.fromTo(f, { clipPath: 'inset(18% 10% 18% 10% round 22px)' }, { clipPath: 'inset(0% 0% 0% 0% round 22px)', ease: 'none', scrollTrigger: { trigger: f, start: 'top 95%', end: 'top 35%', scrub: true } });

@@ -80,9 +80,10 @@
           <h3>${c.nom}</h3>
           <p>${c.desc}</p>
           <div class="card__meta"><span class="chip">${dur(c.duree)}</span><span class="chip price">${c.prix} €</span>${c.site ? '<span class="chip">texte du club</span>' : ''}</div>
-          <p style="margin-top:10px"><button class="link" type="button" data-book="${c.id}" style="background-color:transparent;border:0;cursor:pointer;padding:0 0 3px">Réserver</button></p>
+          <p style="margin-top:10px"><button class="link" type="button" data-book="${c.id}" style="background-color:transparent;border:0;cursor:pointer;padding:21px 0 3px">Réserver</button></p>
         </div>
       </article>`).join('');
+    GL.reveals($('[data-catalog]'));
 
     /* ---------- Réservation simulée ---------- */
     const dr = $('#reserver'), body = $('[data-bk-body]'), next = $('[data-bk-next]'), back = $('[data-bk-back]'), stepName = $('[data-bk-stepname]'), bars = $$('.steps i', dr);
